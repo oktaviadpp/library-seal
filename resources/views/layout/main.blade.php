@@ -21,6 +21,9 @@
     <!-- <link href="css/sb-admin-2.min.css" rel="stylesheet"> -->
     <link href="/css/sb-admin-2.min.css" rel="stylesheet">
 
+    {{-- DATA TABLE --}}
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.css" />
+
 </head>
 
 <body id="page-top">
@@ -77,6 +80,16 @@
     <script src="/js/demo/chart-area-demo.js"></script>
     <script src="/js/demo/chart-pie-demo.js"></script>
 
+    {{-- Data Table --}}
+    <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.js"></script>
+    <script>
+        let table = new DataTable('#myTable', {
+            responsive: true,
+            "scrollX": true,
+            scrollY: 500,
+            scrollCollapse: true,
+        });
+    </script>
 </body>
 
 </html>
