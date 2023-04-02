@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\BukuController;
+use App\Http\Controllers\KategoriController;
+use App\Http\Controllers\RakControllerResourceModel;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,10 +25,14 @@ Route::get('/', function () {
 Route::get('/peminjaman', function () {
     return view('peminjaman');
 });
-Route::get('/rak-buku', function () {
-    return view('rak_buku');
-});
-
-// Route::options('option',function(){
-//     return 'https://laravel.com/docs/9.x/routing/';
+// Route::get('/rak-buku', function () {
+//     return view('rak_buku');
 // });
+
+//Langsung menjalankan 7 function resource
+Route::resource('/rak-buku', RakControllerResourceModel::class);
+Route::resource('/kategori-buku', KategoriController::class);
+Route::resource('/buku', BukuController::class);
+
+//Generate route setiap function
+// Route::get('/rak-buku',[RakControllerResourceModel::class,'index']);

@@ -55,9 +55,9 @@
             data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Data Master</h6>
-                <a class="collapse-item" href="utilities-color.html">Daftar Buku</a>
-                <a class="collapse-item" href="utilities-color.html">Daftar Anggota</a>
-                <a class="collapse-item" href="utilities-border.html">Kategori Buku</a>
+                <a class="collapse-item" href="/buku">Daftar Buku</a>
+                <a class="collapse-item" href="/buku">Daftar Anggota</a>
+                <a class="collapse-item" href="/kategori-buku">Kategori Buku</a>
                 <a class="collapse-item" href="/rak-buku">Rak Buku</a>
             </div>
         </div>

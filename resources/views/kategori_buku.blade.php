@@ -5,23 +5,27 @@
 @endsection
 
 @section('content')
-    <h1> Rak Buku</h1>
+    <h1> Ini halaman Peminjaman</h1>
     <div class="table-responsive">
         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
             <thead>
                 <tr>
                     <th>No</th>
-                    <th>Nama Rak</th>
+                    <th>Kode Kategori</th>
+                    <th>Nama Kategori</th>
                     <th>Kode Rak</th>
+                    <th>Nama Rak</th>
                     <th>Aksi</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach ($rakbuku as $rak)
+                @foreach ($kategoribuku as $kat)
                 <tr>
-                        <td>{{$rak->id}}</td>
-                        <td>{{$rak->name}}</td>
-                        <td>{{$rak->code}}</td>
+                        <td>{{$kat->id}}</td>
+                        <td>{{$kat->rak->code}}</td>
+                        <td>{{$kat->rak->name}}</td>
+                        <td>{{$kat->code}}</td>
+                        <td>{{$kat->name}}</td>
                         <td>
                             <a href="#" class="btn btn-danger btn-circle btn-sm">
                                 <i class="fas fa-trash"></i>
