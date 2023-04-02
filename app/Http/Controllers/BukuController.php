@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreBukuRequest;
+use App\Http\Requests\UpdateBukuRequest;
 use App\Models\BukuModel;
 use App\Models\KategoriModel;
 use App\Models\RakModel;
@@ -73,9 +74,11 @@ class BukuController extends Controller
      * @param  \App\Models\BukuModel  $bukuModel
      * @return \Illuminate\Http\Response
      */
-    public function edit(BukuModel $bukuModel)
+    public function edit(BukuModel $buku)
     {
-        //
+        $kategori = KategoriModel::get();
+        $rak = RakModel::get();
+        return view('buku.edit', compact(['kategori', 'rak','buku']));
     }
 
     /**
@@ -85,9 +88,19 @@ class BukuController extends Controller
      * @param  \App\Models\BukuModel  $bukuModel
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, BukuModel $bukuModel)
+    public function update(UpdateBukuRequest $request, BukuModel $buku)
     {
-        //
+        $data=$request->only([
+            'id_kategori',
+            'id_rak',
+            'title',
+            'pengarang',
+            'penerbit',
+            'tahun_terbit',
+            'desc'
+        ]);
+        $buku->update($data);
+        return redirect()->route('buku.index')->with('success','Data Berhasil Disimpan!');
     }
 
     /**
@@ -96,8 +109,9 @@ class BukuController extends Controller
      * @param  \App\Models\BukuModel  $bukuModel
      * @return \Illuminate\Http\Response
      */
-    public function destroy(BukuModel $bukuModel)
+    public function destroy(BukuModel $buku)
     {
-        //
+        $buku->delete($buku->id);
+        return redirect()->route('buku.index')->with('success','Data Berhasil Dihapus!');
     }
 }

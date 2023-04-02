@@ -38,17 +38,24 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($buku as $buku)
+                        @foreach ($buku as $key => $buku)
                         <tr>
-                            <td>{{$buku->id}}</td>
-                            <td>{{$buku->rak->code}}</td>
+                            <th scope="row">{{$key+1}}</th>
                             <td>{{$buku->kategori->code}}</td>
+                            <td>{{$buku->rak->code}}</td>
                             <td>{{mb_strimwidth($buku->title, 0, 55, '...');}}</td>
                             <td>
-                                <a href="#" class="btn btn-danger btn-circle btn-sm">
-                                    <i class="fas fa-trash"></i>
-                                </a>
-                                <a href="#" class="btn btn-primary btn-circle btn-sm">
+                                {{-- tombol hapus --}}
+                                <form action="{{route('buku.destroy',$buku->id)}}" method="POST" class="d-inline">
+                                    @method('DELETE')
+                                    @csrf
+                                    <button class="btn btn-danger btn-circle btn-sm" onclick="return confirm('Anda yakin ingin hapus data ini?')">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </form>
+
+                                {{-- tombol edit --}}
+                                <a href="{{ route('buku.edit', $buku->id) }}" class="btn btn-primary btn-circle btn-sm">
                                     <i class="fas fa-edit"></i>
                                 </a>
 
