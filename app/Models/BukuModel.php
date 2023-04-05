@@ -16,7 +16,8 @@ class BukuModel extends Model
         'pengarang',
         'penerbit',
         'tahun_terbit',
-        'desc'
+        'desc',
+        'image'
     ];
 
     //relasi one to Many dgn RakModel

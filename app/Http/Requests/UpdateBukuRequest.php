@@ -36,8 +36,8 @@ class UpdateBukuRequest extends FormRequest
     public function messages()
     {
         return[
-            'id_kategori'=>'Judul Harus diisi',
-            'id_rak'=>'Judul Harus diisi',
+            'id_kategori.required'=>'Judul Harus diisi',
+            'id_rak.required'=>'Judul Harus diisi',
             'title.required'=>'Judul Harus diisi',
             'pengarang.required'=>'Pengarang Harus diisi',
             'penerbit.required'=>'Penerbit Harus diisi',

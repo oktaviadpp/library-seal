@@ -83,11 +83,14 @@
     {{-- Data Table --}}
     <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.js"></script>
     <script>
-        let table = new DataTable('#myTable', {
-            responsive: true,
-            "scrollX": true,
-            scrollY: 500,
-            scrollCollapse: true,
+        // let table = new DataTable('#myTable', {
+        //     responsive: true,
+        //     "scrollX": true,
+        //     scrollY: 500,
+        //     scrollCollapse: true,
+        // });
+        let table = new DataTable('#myTables', {
+            responsive: true
         });
     </script>
 </body>

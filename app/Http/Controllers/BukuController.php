@@ -51,8 +51,25 @@ class BukuController extends Controller
             'pengarang',
             'penerbit',
             'tahun_terbit',
-            'desc'
+            'desc',
+            'image'
         ]);
+
+        // if ($request->image) {
+        //     $file = $request->File('image');
+        //     $ext  = $user->username . "." . $file->clientExtension();
+        //     $file->storeAs('images/', $ext);
+        //     $user->image_name = $ext;
+        // }
+
+        // dd($request['image']);
+        $newCover = '';
+        if($request->file('image')){
+            $cover = $request->file('image')->getClientOriginalExtension();
+            $newCover = $request->title.'.'.$cover;
+            $request->file('image')->storeAs('buku', $newCover);
+        }
+        $request['image'] = $newCover;
         BukuModel::create($data);
         return redirect()->route('buku.index')->with('success','Data Berhasil Disimpan!');
     }

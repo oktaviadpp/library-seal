@@ -8,7 +8,7 @@
     <h1> Tambah Buku </h1>
     <div class="card">
         <div class="card-body">
-            <form action="{{route('buku.store')}}" method="POST">
+            <form action="{{route('buku.store')}}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="mb-3">
                   <label for="exampleInputEmail1" class="form-label">Kode Kategori</label>
@@ -106,6 +106,14 @@
                         {{$message}}
                     </div>
                     @enderror
+                  </div>
+
+                  {{-- Cover --}}
+                  <label for="exampleInputEmail1">Image</label>
+                  <div class="input-group mb-3">
+                    <div class="custom-file">
+                      <input type="file" class="form-control" id="image" name="image">
+                    </div>
                   </div>
 
                   {{-- desc --}}

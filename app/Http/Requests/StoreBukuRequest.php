@@ -24,24 +24,24 @@ class StoreBukuRequest extends FormRequest
     public function rules()
     {
         return [
-            'id_kategori'=>'required',
-            'id_rak'=>'required',
-            'title'=>'required|string',
-            'pengarang'=>'required|string',
-            'penerbit'=>'required|string',
-            'tahun_terbit'=>'required|numeric',
-            'desc'
+            // 'id_kategori'=>'required',
+            // 'id_rak'=>'required',
+            // 'title'=>'required|string',
+            // 'pengarang'=>'required|string',
+            // 'penerbit'=>'required|string',
+            // 'tahun_terbit'=>'required|numeric',
+            // 'desc'
         ];
     }
     public function messages()
     {
         return[
-            'id_kategori'=>'Judul Harus diisi',
-            'id_rak'=>'Judul Harus diisi',
-            'title.required'=>'Judul Harus diisi',
-            'pengarang.required'=>'Pengarang Harus diisi',
-            'penerbit.required'=>'Penerbit Harus diisi',
-            'tahun_terbit.required'=>'Tahun Terbit Harus diisi',
+            // 'id_kategori'=>'Judul Harus diisi',
+            // 'id_rak'=>'Judul Harus diisi',
+            // 'title.required'=>'Judul Harus diisi',
+            // 'pengarang.required'=>'Pengarang Harus diisi',
+            // 'penerbit.required'=>'Penerbit Harus diisi',
+            // 'tahun_terbit.required'=>'Tahun Terbit Harus diisi',
         ];
     }
 }

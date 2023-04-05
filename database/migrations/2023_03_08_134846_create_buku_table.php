@@ -19,11 +19,12 @@ return new class extends Migration
             $table->foreign('id_kategori')->references('id')->on('kategoribuku');
             $table->unsignedBigInteger('id_rak')->required();
             $table->foreign('id_rak')->references('id')->on('rakbuku');
-            $table->string('title')->required();
-            $table->string('pengarang');
-            $table->string('penerbit');
-            $table->integer('tahun_terbit');
-            $table->text('desc');
+            $table->string('title')->required()->nullable();
+            $table->string('pengarang')->nullable();
+            $table->string('penerbit')->nullable();
+            $table->integer('tahun_terbit')->nullable();
+            $table->string('image')->nullable();
+            $table->text('desc')->nullable();
             $table->timestamps();
         });
     }
