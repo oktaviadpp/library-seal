@@ -44,32 +44,25 @@ class BukuController extends Controller
      */
     public function store(StoreBukuRequest $request)
     {
-        $data=$request->only([
-            'id_kategori',
-            'id_rak',
-            'title',
-            'pengarang',
-            'penerbit',
-            'tahun_terbit',
-            'desc',
-            'image'
-        ]);
+        // $data=$request->only([
+        //     'id_kategori',
+        //     'id_rak',
+        //     'title',
+        //     'pengarang',
+        //     'penerbit',
+        //     'tahun_terbit',
+        //     'desc',
+        //     'image'
+        // ]);
 
-        // if ($request->image) {
-        //     $file = $request->File('image');
-        //     $ext  = $user->username . "." . $file->clientExtension();
-        //     $file->storeAs('images/', $ext);
-        //     $user->image_name = $ext;
-        // }
+        $data=$request->all();
 
-        // dd($request['image']);
-        $newCover = '';
-        if($request->file('image')){
-            $cover = $request->file('image')->getClientOriginalExtension();
-            $newCover = $request->title.'.'.$cover;
-            $request->file('image')->storeAs('buku', $newCover);
-        }
-        $request['image'] = $newCover;
+		$file = $request->file('image');
+
+		$nama_file = time()."_".$file->getClientOriginalName();
+		$tujuan_upload = 'storage/buku';
+		$file->move($tujuan_upload,$nama_file);
+        $data['image'] = $nama_file;
         BukuModel::create($data);
         return redirect()->route('buku.index')->with('success','Data Berhasil Disimpan!');
     }

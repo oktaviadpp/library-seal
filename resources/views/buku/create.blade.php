@@ -108,7 +108,7 @@
                     @enderror
                   </div>
 
-                  {{-- Cover --}}
+                  {{-- Image --}}
                   <label for="exampleInputEmail1">Image</label>
                   <div class="input-group mb-3">
                     <div class="custom-file">

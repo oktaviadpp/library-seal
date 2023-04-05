@@ -13,7 +13,7 @@
         </div>
         <div class="card-body">
           <h5 class="card-title">{{$buku->title}}</h5>
-          <img src="{{asset('storage/buku/'.$buku->cover)}}" alt="">
+          <img width="300px" src="{{ url('/storage/buku/'.$buku->image) }}">
           <p class="card-text">Pengarang : {{$buku->pengarang}}</p>
           <p class="card-text">Penerbit : {{$buku->penerbit}}</p>
           <p class="card-text">Tahun Terbit : {{$buku->tahun_terbit}}</p>

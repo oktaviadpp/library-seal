@@ -95,6 +95,14 @@
                     @enderror
                   </div>
 
+                  {{-- Image --}}
+                  <label for="exampleInputEmail1">Image</label>
+                  <div class="input-group mb-3">
+                    <div class="custom-file">
+                      <input type="file" class="form-control" id="image" name="image">
+                    </div>
+                  </div>
+
                   {{-- desc --}}
                   <div class="form-group">
                     <label for="exampleFormControlTextarea1">Deskripsi</label>

@@ -30,7 +30,8 @@ class UpdateBukuRequest extends FormRequest
             'pengarang'=>'required|string',
             'penerbit'=>'required|string',
             'tahun_terbit'=>'required|numeric',
-            'desc'
+            'desc',
+            'image'=>'file|image|mimes:jpeg,png,jpg|max:2048'
         ];
     }
     public function messages()
