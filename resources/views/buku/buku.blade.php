@@ -17,6 +17,18 @@
                 <span class="text">Tambah Buku</span>
             </a>
 
+            {{-- tombol Delete All --}}
+            <form action="{{route('delete-all')}}" method="POST" class="d-inline">
+                @method('DELETE')
+                @csrf
+                <button class="btn btn-danger btn-icon-split" onclick="return confirm('Anda yakin ingin hapus SEMUA DATA?')">
+                    <span class="icon text-white-50">
+                        <i class="fas fa-trash"></i>
+                    </span>
+                    <span class="text">Hapus Semua Data</span>
+                </button>
+            </form>
+
             {{-- alert sukses --}}
             @if (session()->has('success'))
                 <div class="alert alert-success" role="alert">

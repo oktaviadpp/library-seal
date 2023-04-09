@@ -8,6 +8,7 @@ use App\Models\BukuModel;
 use App\Models\KategoriModel;
 use App\Models\RakModel;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 
 class BukuController extends Controller
 {
@@ -63,6 +64,7 @@ class BukuController extends Controller
 		$tujuan_upload = 'storage/buku';
 		$file->move($tujuan_upload,$nama_file);
         $data['image'] = $nama_file;
+
         BukuModel::create($data);
         return redirect()->route('buku.index')->with('success','Data Berhasil Disimpan!');
     }
@@ -100,15 +102,26 @@ class BukuController extends Controller
      */
     public function update(UpdateBukuRequest $request, BukuModel $buku)
     {
-        $data=$request->only([
-            'id_kategori',
-            'id_rak',
-            'title',
-            'pengarang',
-            'penerbit',
-            'tahun_terbit',
-            'desc'
-        ]);
+        // $data=$request->only([
+        //     'id_kategori',
+        //     'id_rak',
+        //     'title',
+        //     'pengarang',
+        //     'penerbit',
+        //     'tahun_terbit',
+        //     'desc'
+        // ]);
+        $file = $request->file('image');
+        $data=$request->all();
+
+        if ($file != '') {
+            unlink('storage/buku/'.$buku->image);
+            $nama_file = time()."_".$file->getClientOriginalName();
+            $tujuan_upload = 'storage/buku';
+            $file->move($tujuan_upload,$nama_file);
+            $data['image'] = $nama_file;
+            // File::delete($buku->image);
+        }
         $buku->update($data);
         return redirect()->route('buku.index')->with('success','Data Berhasil Disimpan!');
     }
@@ -124,4 +137,10 @@ class BukuController extends Controller
         $buku->delete($buku->id);
         return redirect()->route('buku.index')->with('success','Data Berhasil Dihapus!');
     }
+
+    public function deleteAll(){
+        BukuModel::truncate();
+        return redirect()->route('buku.index')->with('success','Semua Data Berhasil Dihapus!');
+    }
+
 }

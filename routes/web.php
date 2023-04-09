@@ -32,10 +32,11 @@ Route::get('/peminjaman', function () {
 
 Route::get('/upload', [UploadController::class,'upload']);
 Route::post('/upload/proses', [UploadController::class,'proses_upload']);
-//Langsung menjalankan 7 function resource
+Route::delete('/delete-all',[BukuController::class,'deleteAll'])->name('delete-all');
 Route::resource('/rak-buku', RakControllerResourceModel::class);
 Route::resource('/kategori-buku', KategoriController::class);
 Route::resource('/buku', BukuController::class);
+
 
 //Generate route setiap function
 // Route::get('/rak-buku',[RakControllerResourceModel::class,'index']);
