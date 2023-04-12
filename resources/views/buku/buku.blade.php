@@ -77,10 +77,24 @@
                                 </a>
                             </td>
                         </tr>
-
                 @endforeach
                     </tbody>
                 </table>
+
+                <div class="card">
+                    <div class="card-header">
+                      TASK 7!
+                    </div>
+                    <div class="card-body">
+                      <h5 class="card-title">TASK 7!</h5>
+                      <ul>
+                        <li>Membuat Edit foto</li>
+                        <li>Membuat upload dan edit dokumen (pdf,word, dll)</li>
+                        <li>Membuat delete foto dan dokumen</li>
+                        <li>Screenshot hasil tampilan</li>
+                        <li>Upload di drive dalam bentuk pdf</li>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

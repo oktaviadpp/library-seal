@@ -115,12 +115,12 @@ class BukuController extends Controller
         $data=$request->all();
 
         if ($file != '') {
-            unlink('storage/buku/'.$buku->image);
+            // unlink('storage/buku/'.$buku->image);
             $nama_file = time()."_".$file->getClientOriginalName();
             $tujuan_upload = 'storage/buku';
             $file->move($tujuan_upload,$nama_file);
             $data['image'] = $nama_file;
-            // File::delete($buku->image);
+            File::delete('storage/buku/'.$buku->image);
         }
         $buku->update($data);
         return redirect()->route('buku.index')->with('success','Data Berhasil Disimpan!');
