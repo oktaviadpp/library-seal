@@ -33,6 +33,7 @@ Route::get('/peminjaman', function () {
 Route::get('/upload', [UploadController::class,'upload']);
 Route::post('/upload/proses', [UploadController::class,'proses_upload']);
 Route::delete('/delete-all',[BukuController::class,'deleteAll'])->name('delete-all');
+Route::get('/create-pdf', [BukuController::class, 'createPDF'])->name('create-pdf');
 Route::resource('/rak-buku', RakControllerResourceModel::class);
 Route::resource('/kategori-buku', KategoriController::class);
 Route::resource('/buku', BukuController::class);

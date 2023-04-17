@@ -29,6 +29,16 @@
                 </button>
             </form>
 
+            {{-- tombol Ekspor PDF --}}
+            <form action="{{route('create-pdf')}}"class="d-inline">
+                <button class="btn btn-success btn-icon-split">
+                    <span class="icon text-white-50">
+                        <i class="fas fa-trash"></i>
+                    </span>
+                    <span class="text">Ekspor Data (PDF)</span>
+                </button>
+            </form>
+
             {{-- alert sukses --}}
             @if (session()->has('success'))
                 <div class="alert alert-success" role="alert">
